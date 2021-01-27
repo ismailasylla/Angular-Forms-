@@ -1,9 +1,12 @@
 <div class="container col-md-6">
     <h1>User Settings</h1>
-    <form #form="ngForm">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <div class="form-group">
             <label for="name">User Name</label>
-            <input class="form-control" placeholder="Enter Your Name" name="name" [(ngModel)]="userSettings.name"/>
+            <input class="form-control" placeholder="Enter Your Name" name="name" [(ngModel)]="userSettings.name" required #nameField="ngModel" [class.field.error]="form.submitted && nameField.valid"/>
+            <div [hidden]="!form.submitted ||  nameField.valid " class="alert alert-danger">
+                Name field is required.
+            </div>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
