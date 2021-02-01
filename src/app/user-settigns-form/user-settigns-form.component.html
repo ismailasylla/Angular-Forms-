@@ -3,17 +3,25 @@
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <div class="form-group">
             <label for="name">User Name</label>
-            <input class="form-control" placeholder="Enter Your Name" name="name" [(ngModel)]="userSettings.name" required #nameField="ngModel" [class.field.error]="form.submitted && nameField.valid"/>
+            <input class="form-control" placeholder="Enter Your Name" name="name" [(ngModel)]="userSettings.name"
+                required #nameField="ngModel" [class.field.error]="form.submitted && nameField.valid" />
             <div [hidden]="!form.submitted ||  nameField.valid " class="alert alert-danger">
                 Name field is required.
             </div>
         </div>
+        <button type="button" class="btn btn-primary" [(ngModel)]="singleModel" btnCheckbox btnCheckboxTrue="On"
+            btnCheckboxFalse="Off" name="singleModel">
+            {{singleModel}}
+        </button>
+
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" [(ngModel)]="userSettings.password"/>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password"
+                [(ngModel)]="userSettings.password" />
         </div>
         <div class="form-check form-group">
-            <input class="form-check-input" type="checkbox" id="emailOffers" name="emailOffers" [(ngModel)]="userSettings.emailOffers" />
+            <input class="form-check-input" type="checkbox" id="emailOffers" name="emailOffers"
+                [(ngModel)]="userSettings.emailOffers" />
             <label class="form-check-label" for="emailOffers">
                 Email Special Offers
             </label>
@@ -21,33 +29,26 @@
 
         <p>User Interface Style</p>
         <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="interfaceStyle" id="lightInterface" checked
-                    value="light" [(ngModel)]="userSettings.interfaceStyle">
-                <label class="form-check-label" for="lightInterface">
-                    Light
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="interfaceStyle" id="mediumInterface" value="medium" [(ngModel)]="userSettings.interfaceStyle"/>
-                <label class="form-check-label" for="mediumInterface">
-                    Medium
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="interfaceStyle" id="flexRadioDefault2" value="dark" [(ngModel)]="userSettings.interfaceStyle"/>
-                <label class="form-check-label" for="darkInterface">
-                    Dark
-                </label>
+            <div class="btn-group">
+                <label class="btn btn-primary" btnRadio="Light" uncheckable tabindex="0" role="button" name="interfaceStyle"
+                    id="lightInterface" checked value="light" [(ngModel)]="userSettings.interfaceStyle">Light</label>
+                <label class="btn btn-primary" btnRadio="Medium" uncheckable tabindex="0" role="button"
+                    name="interfaceStyle" id="mediumInterface" value="medium"
+                    [(ngModel)]="userSettings.interfaceStyle">Medium</label>
+                <label class="btn btn-primary" btnRadio="Dark" uncheckable tabindex="0" role="button" name="interfaceStyle"
+                    id="flexRadioDefault2" value="dark" [(ngModel)]="userSettings.interfaceStyle">Dark</label>
             </div>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Subscription Type</label>
-            <select class="form-control form-select" aria-label="Default select example" name="subscriptionType" id="subscriptionType" [(ngModel)]="userSettings.subscriptionType">
+            <select class="form-control form-select" aria-label="Default select example" name="subscriptionType"
+                id="subscriptionType" [(ngModel)]="userSettings.subscriptionType">
                 <option selected>Open this select menu</option>
-                <option >Monthly</option>
-                <option >Annualy</option>
-                <option >Lifetime</option>
+                <option *ngFor="let type of subscriptionType | async">
+                    {{type}}
+                </option>
+                <!-- <option>Annualy</option>
+                <option>Lifetime</option> -->
             </select>
         </div>
 
@@ -59,7 +60,9 @@
             </div>
         </div>
 
-
+        <div class="alert alert-danger" [hidden]="!postError">
+            {{postErrorMessage}}
+        </div>
         <button class="btn btn-primary mt-1">Submit</button>
     </form>
 </div>

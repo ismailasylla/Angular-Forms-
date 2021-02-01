@@ -10,7 +10,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getSubscriptionTypes():Observable<string[]>{
+ getSubscriptionTypes():Observable<string[]>{
     return of(['Monthly', 'Annual', 'Lifetime'])
   }
 

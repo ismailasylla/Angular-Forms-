@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { DataService } from '../data/data.service';
 import { UserSettings } from '../data/user-settings';
 
 @Component({
@@ -9,33 +11,62 @@ import { UserSettings } from '../data/user-settings';
 })
 export class UserSettignsFormComponent implements OnInit {
 
-// originalUserSettings :UserSettings = {
-//   name: "ismail",
-//   password : "American1",
-//   emailOffers:true,
-//   interfaceStyle:'dark',
-//   subscriptionType:'Annualy',
-//   notes: "Just some notes..."
-// }
 originalUserSettings :UserSettings = {
-  name: null,
-  password : null,
-  emailOffers:null,
-  interfaceStyle:null,
-  subscriptionType:null,
-  notes: null,
+  name: "",
+  password : "",
+  emailOffers:true,
+  interfaceStyle:'dark',
+  subscriptionType:'Annualy',
+  notes: "Just some notes..."
 }
+
+// originalUserSettings :UserSettings = {
+//   name: = null,
+//   password : null,
+//   emailOffers:null,
+//   interfaceStyle:null,
+//   subscriptionType:null,
+//   notes: null,
+// }
 
 
 
 userSettings :UserSettings = {... this.originalUserSettings}
-  constructor() { }
+postError= false;
+postErrorMessage = ''
+subscriptionType = new Observable<string[]>();
+
+singleModel = "On";
+
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.subscriptionType = this.dataService.getSubscriptionTypes()
   }
 
 onSubmit(form: NgForm){
-  console.log("Submitted", form.valid)
+  console.log('Submited', form.value)
+  // if (form.valid){
+  //   console.log("Submitted", form.valid)
+  // this.dataService.postUserSettingsForm(this.userSettings).subscribe(
+  //   result => console.log('Success', result),
+  //   error => console.log('error', error)
+  // )
+  // }else{
+  //   this.postError = true;
+  //   this.postErrorMessage = "Please fix the above errors!"
+  // }
+
+
 }
+
+onHttpError (errorResponse:any){
+  console.log('error:', this.postErrorMessage);
+  this.postError = true;
+  this.postErrorMessage = errorResponse.error.errorMessage;
+}
+
+
 
 }
