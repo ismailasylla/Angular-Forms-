@@ -21,20 +21,22 @@ originalUserSettings :UserSettings = {
 }
 
 // originalUserSettings :UserSettings = {
-//   name: = null,
-//   password : null,
-//   emailOffers:null,
-//   interfaceStyle:null,
-//   subscriptionType:null,
-//   notes: null,
+//   name: "",
+//   password : "",
+//   emailOffers: null,
+//   interfaceStyle: "",
+//   subscriptionType: "",
+//   notes:"",
 // }
 
 
+startDate: Date;
 
 userSettings :UserSettings = {... this.originalUserSettings}
 postError= false;
 postErrorMessage = ''
 subscriptionType = new Observable<string[]>();
+
 
 singleModel = "On";
 
@@ -43,6 +45,7 @@ singleModel = "On";
 
   ngOnInit(): void {
     this.subscriptionType = this.dataService.getSubscriptionTypes()
+    this.startDate = new Date();
   }
 
 onSubmit(form: NgForm){

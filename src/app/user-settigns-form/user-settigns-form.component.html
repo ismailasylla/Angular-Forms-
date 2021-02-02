@@ -9,6 +9,12 @@
                 Name field is required.
             </div>
         </div>
+        <div class=" form-group">
+            <label for="startDate">Join Date</label>
+            <div class="col-xs-12 col-12 col-md-4">
+                <input type="text" placeholder="Select Date" class="form-control" bsDatepicker [(ngModel)]="startDate" name="startDate">
+            </div>
+        </div>
         <button type="button" class="btn btn-primary" [(ngModel)]="singleModel" btnCheckbox btnCheckboxTrue="On"
             btnCheckboxFalse="Off" name="singleModel">
             {{singleModel}}
@@ -65,6 +71,17 @@
         </div>
         <button class="btn btn-primary mt-1">Submit</button>
     </form>
+    
 </div>
-{{userSettings | json}}
-<!-- {{originalUserSettings| json}} -->
+
+<div class="container">
+    <ul>
+        <li>{{userSettings | json}}</li>
+        <li><h6 style="color:darkturquoise">{{startDate | json}}</h6></li>
+        <li><!-- {{originalUserSettings| json}} --></li>
+    </ul>
+    
+    
+   
+
+</div>
