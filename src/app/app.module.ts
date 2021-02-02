@@ -6,7 +6,9 @@ import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserSettignsFormComponent } from './user-settigns-form/user-settigns-form.component';
-import {ButtonsModule} from 'ngx-bootstrap/buttons'
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {ButtonsModule} from 'ngx-bootstrap/buttons'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ButtonsModule
+    ButtonsModule.forRoot(),
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
