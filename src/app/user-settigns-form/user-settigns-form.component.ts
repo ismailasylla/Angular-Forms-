@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DataService } from '../data/data.service';
 import { UserSettings } from '../data/user-settings';
 
+
 @Component({
   selector: 'app-user-settigns-form',
   templateUrl: './user-settigns-form.component.html',
@@ -29,8 +30,15 @@ originalUserSettings :UserSettings = {
 //   notes:"",
 // }
 
-
+singleModel = "On";
 startDate: Date;
+mytime: Date ;
+
+// Rating
+  // max: number = 10;
+  // rate: number = 7;
+  // isReadonly: boolean = true;
+  userRating=""
 
 userSettings :UserSettings = {... this.originalUserSettings}
 postError= false;
@@ -38,7 +46,7 @@ postErrorMessage = ''
 subscriptionType = new Observable<string[]>();
 
 
-singleModel = "On";
+
 
 
   constructor(private dataService: DataService) { }
@@ -46,6 +54,8 @@ singleModel = "On";
   ngOnInit(): void {
     this.subscriptionType = this.dataService.getSubscriptionTypes()
     this.startDate = new Date();
+    this.mytime = new Date();
+    this.userRating
   }
 
 onSubmit(form: NgForm){
