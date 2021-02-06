@@ -11,12 +11,14 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { ProductsComponent } from './components/products/products.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserSettignsFormComponent
+    UserSettignsFormComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
