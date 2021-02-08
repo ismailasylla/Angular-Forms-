@@ -1,0 +1,35 @@
+<br>
+<div class="container">
+    <h1>Products</h1>
+   
+<table class="table" *ngIf='products && products.length'>
+    <thead>
+        <div class="form-group row">
+            <div class="col-xs-3">
+                <input class="form-control" type="text" placeholder="Search product">
+            </div>
+        </div>
+        <Button class="btn btn-primary m-2" (click)="toggleImage()">{{showImage ? 'Hide' : 'Show'}} Image</Button>
+        
+        <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Brand</th>
+            <th scope="col">description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <!-- <th scope="row">1</th> -->
+            <td> <img *ngIf="showImage" [src]="product.image" alt="" [style.width.px]='imageWidth' [style.margin.px]="imageMargins"></td>
+            <td>{{product.name}}</td>
+            <td>{{product.brand}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price | currency:'USD':'symbol':'1.2-2'}}</td>
+            <td><app-rating [rate]='product.rating'></app-rating></td>
+        </tr>
+    </tbody>
+</table>
+</div>
