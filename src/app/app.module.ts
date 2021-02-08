@@ -12,13 +12,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { ProductsComponent } from './components/products/products.component';
+import { RatingComponent } from './common/rating/rating.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserSettignsFormComponent,
-    ProductsComponent
+    ProductsComponent,
+    RatingComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
