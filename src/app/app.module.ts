@@ -13,6 +13,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { ProductsComponent } from './components/products/products.component';
 import { RatingComponent } from './common/rating/rating.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RatingComponent } from './common/rating/rating.component';
     UserSettignsFormComponent,
     ProductsComponent,
     RatingComponent,
-    RatingComponent
+    RatingComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
