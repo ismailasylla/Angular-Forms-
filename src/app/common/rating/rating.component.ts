@@ -7,7 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class RatingComponent implements OnInit {
   max: number = 10;
-  @Input() rate: number;
+  @Input()
+  rate!: number;
   isReadonly: boolean = true;
   starWidth: number | undefined;
 
