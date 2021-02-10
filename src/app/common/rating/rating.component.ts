@@ -18,4 +18,8 @@ export class RatingComponent implements OnInit {
     this.starWidth = this.rate * 75 / 5;
   }
 
+  onClick (): void {
+    console.log(`The rating ${this.rate} was clicked!`)
+  }
+
 }
