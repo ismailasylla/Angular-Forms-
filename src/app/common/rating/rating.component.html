@@ -1,4 +1,4 @@
-<rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" style="cursor: pointer;"></rating>
+<rating  (click)="onClick()" [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" style="cursor: pointer;"></rating>
 <!-- <div class="card">
     <pre class="card-block card-header" style="margin:15px 0;">Rate: <b>{{rate}}</b> </pre>
 </div> -->
