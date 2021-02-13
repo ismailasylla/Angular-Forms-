@@ -32,7 +32,7 @@ originalUserSettings :UserSettings = {
 
 singleModel = "On";
 startDate: Date;
-mytime: Date ;
+// mytime: Date ;
 
 // Rating
   // max: number = 10;
@@ -54,7 +54,7 @@ subscriptionType = new Observable<string[]>();
   ngOnInit(): void {
     this.subscriptionType = this.dataService.getSubscriptionTypes()
     this.startDate = new Date();
-    this.mytime = new Date();
+    // this.mytime = new Date();
     this.userRating
   }
 
