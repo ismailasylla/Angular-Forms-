@@ -24,7 +24,7 @@
         <tr *ngFor="let product of products">
             <!-- <th scope="row">1</th> -->
             <td> <img *ngIf="showImage" [src]="product.image" alt="" [style.width.px]='imageWidth' [style.margin.px]="imageMargins"></td>
-            <td>{{product.name}}</td>
+            <td > <span class="nameColor">{{product.name}}</span> </td>
             <td>{{product.brand}}</td>
             <td>{{product.description}}</td>
             <td>{{product.price | currency:'USD':'symbol':'1.2-2'}}</td>
